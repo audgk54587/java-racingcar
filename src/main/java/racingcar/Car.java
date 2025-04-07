@@ -2,34 +2,29 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
-public class Car
-{
-    private String name;
-    int position = 0;
+public class Car {
+    private final String name;
+    private int position = 0;
 
-    public Car(String name)
-    {
-        if (name.length() > 5)
-        {
-            throw new IllegalArgumentException("5자 이하만");
-
+    public Car(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
-        this.name=name;
+        this.name = name;
     }
 
-    public void movement()
-    {
-        if (pickNumberInRange(0, 9) >= 4)
-        {
+    public void movement() {
+        int randomNumber = pickNumberInRange(0, 9);
+        if (randomNumber >= 4) {
             position++;
         }
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public int getPosition(){
+    public int getPosition() {
         return position;
     }
 }
